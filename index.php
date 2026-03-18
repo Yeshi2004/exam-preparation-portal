@@ -97,8 +97,8 @@
 <nav>
     <a href="index.php">Home</a>
     <a href="notes.php">Notes</a>
-    <a href="pastpapers.php">Past Papers</a>
-    <a href="modelpapers.php">Model Papers</a>
+    <a href="pastpaper.php">Past Papers</a>
+    <a href="modelpaper.php">Model Papers</a>
     <a href="quiz.php">Quiz</a>
 </nav>
 
@@ -161,6 +161,8 @@ test your knowledge and evaluate how well you have learned the material.
 
     <div class="card">
         <a href="notes.php">📘 Notes</a>
+        <a href="pastpaper.php">Past Papers</a>
+        <a href="modelpaper.php">Model Papers</a>  
         <p>Study materials for all subjects</p>
     </div>
 

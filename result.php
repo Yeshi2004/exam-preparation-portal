@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "exam_prep");
+$conn = new mysqli("localhost", "root", "", "exam_portal");
 
 $sql = "SELECT * FROM quiz_questions";
 $result = $conn->query($sql);
