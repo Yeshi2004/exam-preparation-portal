@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 session_start();
 
 $conn = new mysqli("localhost", "root", "", "exam_portal");
@@ -14,6 +15,13 @@ if(!$result){
     die("Query Failed: " . $conn->error);
 }
 
+=======
+$conn = new mysqli("localhost", "root", "", "exam_portal");
+
+$sql = "SELECT * FROM quiz_questions";
+$result = $conn->query($sql);
+
+>>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 $score = 0;
 $total = $result->num_rows;
 
@@ -30,6 +38,7 @@ while($row = $result->fetch_assoc()){
     }
 }
 
+<<<<<<< HEAD
 $percentage = ($total > 0) ? round(($score/$total)*100) : 0;
 
 // Feedback message
@@ -206,3 +215,7 @@ Percentage: <?php echo $percentage; ?>%
 
 </body>
 </html>
+=======
+echo "<h1>Your Score: $score / $total</h1>";
+?>
+>>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
