@@ -1,9 +1,6 @@
 <?php
-<<<<<<< HEAD
 session_start();
 
-=======
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 $conn = new mysqli("localhost", "root", "", "exam_portal");
 
 if ($conn->connect_error) {
@@ -12,19 +9,15 @@ if ($conn->connect_error) {
 
 $sql = "SELECT * FROM quiz_questions";
 $result = $conn->query($sql);
-<<<<<<< HEAD
 
 if(!$result){
     die("Query Failed: " . $conn->error);
 }
-=======
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
 <title>Quiz</title>
 
 <style>
@@ -96,6 +89,7 @@ body{
     padding:20px;
     margin-bottom:20px;
     border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
 button{
@@ -105,6 +99,7 @@ button{
     color:white;
     border:none;
     border-radius:5px;
+    cursor:pointer;
 }
 
 button:hover{
@@ -148,45 +143,18 @@ button:hover{
 
         <?php if(isset($_SESSION['admin'])): ?>
             <a href="admin/dashboard.php">Dashboard</a>
-            <a href="admin/login.php">Logout</a>
+            <a href="admin/logout.php">Logout</a>
         <?php else: ?>
-            <a href="admin/logout.php">Admin Login</a>
+            <a href="admin/login.php">Admin Login</a>
         <?php endif; ?>
     </nav>
 
 </header>
 
 <!-- CONTENT -->
-<!-- CONTENT -->
 <div class="container">
 
 <h2>🧠 Quiz Test</h2>
-=======
-    <title>Quiz</title>
-    <style>
-        body{
-            font-family: Arial;
-            margin: 40px;
-            background:#f4f4f4;
-        }
-
-        .question-box{
-            background:white;
-            padding:20px;
-            margin-bottom:20px;
-            border-radius:10px;
-        }
-
-        button{
-            padding:10px 20px;
-            font-size:16px;
-        }
-    </style>
-</head>
-<body>
-
-<h1>Quiz Test</h1>
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 
 <form action="result.php" method="post">
 
@@ -198,20 +166,35 @@ while($row = $result->fetch_assoc()){
 
 <div class="question-box">
 
-<<<<<<< HEAD
-<p><b><?php echo $number . ". " . htmlspecialchars($row['question']); ?></b></p>
+<p>
+<b>
+<?php echo $number . ". " . htmlspecialchars($row['question']); ?>
+</b>
+</p>
 
-<input type="radio" name="q<?php echo $row['id']; ?>" value="A">
-<?php echo htmlspecialchars($row['option1']); ?><br><br>
+<input type="radio" 
+       name="q<?php echo $row['id']; ?>" 
+       value="A">
+<?php echo htmlspecialchars($row['option1']); ?>
+<br><br>
 
-<input type="radio" name="q<?php echo $row['id']; ?>" value="B">
-<?php echo htmlspecialchars($row['option2']); ?><br><br>
+<input type="radio" 
+       name="q<?php echo $row['id']; ?>" 
+       value="B">
+<?php echo htmlspecialchars($row['option2']); ?>
+<br><br>
 
-<input type="radio" name="q<?php echo $row['id']; ?>" value="C">
-<?php echo htmlspecialchars($row['option3']); ?><br><br>
+<input type="radio" 
+       name="q<?php echo $row['id']; ?>" 
+       value="C">
+<?php echo htmlspecialchars($row['option3']); ?>
+<br><br>
 
-<input type="radio" name="q<?php echo $row['id']; ?>" value="D">
-<?php echo htmlspecialchars($row['option4']); ?><br><br>
+<input type="radio" 
+       name="q<?php echo $row['id']; ?>" 
+       value="D">
+<?php echo htmlspecialchars($row['option4']); ?>
+<br><br>
 
 <?php if(isset($_SESSION['admin'])): ?>
 
@@ -222,21 +205,6 @@ Delete Question
 </a>
 
 <?php endif; ?>
-=======
-<p><b><?php echo $number . ". " . $row['question']; ?></b></p>
-
-<input type="radio" name="q<?php echo $row['id']; ?>" value="A"> 
-<?php echo $row['option1']; ?><br>
-
-<input type="radio" name="q<?php echo $row['id']; ?>" value="B"> 
-<?php echo $row['option2']; ?><br>
-
-<input type="radio" name="q<?php echo $row['id']; ?>" value="C"> 
-<?php echo $row['option3']; ?><br>
-
-<input type="radio" name="q<?php echo $row['id']; ?>" value="D"> 
-<?php echo $row['option4']; ?><br>
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 
 </div>
 
@@ -249,10 +217,7 @@ $number++;
 
 </form>
 
-<<<<<<< HEAD
 </div>
 
-=======
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 </body>
 </html>

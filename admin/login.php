@@ -3,22 +3,36 @@ session_start();
 
 $conn = new mysqli("localhost","root","","exam_portal");
 
-if(isset($_POST['login'])){
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+if($conn->connect_error){
+    die("Connection failed: " . $conn->connect_error);
+}
 
-    $sql = "SELECT * FROM admin WHERE username='$username' AND password='$password'";
+if(isset($_POST['login'])){
+
+    $username = $conn->real_escape_string($_POST['username']);
+    $password = $conn->real_escape_string($_POST['password']);
+
+    $sql = "SELECT * FROM admins 
+            WHERE username='$username' 
+            AND password='$password'";
+
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
+
         $_SESSION['admin'] = $username;
+
         header("Location: dashboard.php");
         exit();
+
     } else {
+
         $error = "Invalid login!";
     }
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html>

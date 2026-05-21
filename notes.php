@@ -1,8 +1,5 @@
 <?php
-<<<<<<< HEAD
 session_start();
-=======
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 
 $conn = mysqli_connect("localhost","root","","exam_portal");
 
@@ -10,7 +7,6 @@ if(!$conn){
     die("Connection failed: " . mysqli_connect_error());
 }
 
-<<<<<<< HEAD
 $search = "";
 
 if(isset($_GET['search'])){
@@ -28,11 +24,6 @@ $result = mysqli_query($conn,$sql);
 if(!$result){
     die("Query Failed: " . mysqli_error($conn));
 }
-=======
-$sql = "SELECT * FROM notes";
-$result = mysqli_query($conn,$sql);
-
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 ?>
 
 <!DOCTYPE html>
@@ -43,15 +34,11 @@ $result = mysqli_query($conn,$sql);
 <style>
 
 body{
-<<<<<<< HEAD
     margin:0;
-=======
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
     font-family: Arial, sans-serif;
     background:#f4f4f4;
 }
 
-<<<<<<< HEAD
 /* HEADER */
 .main-header{
     display:flex;
@@ -102,8 +89,6 @@ body{
 }
 
 /* CONTENT */
-=======
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 .container{
     width:80%;
     margin:auto;
@@ -116,15 +101,11 @@ body{
     margin-bottom:25px;
 }
 
-<<<<<<< HEAD
 /* CARD */
-=======
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 .note-card{
     background:white;
     padding:15px;
     margin-bottom:15px;
-<<<<<<< HEAD
     border-radius:10px;
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
     display:flex;
@@ -149,13 +130,6 @@ body{
 
 .view-btn:hover{
     background:#15803d;
-=======
-    border-radius:8px;
-    box-shadow:0 2px 5px rgba(0,0,0,0.2);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 }
 
 .download-btn{
@@ -164,24 +138,11 @@ body{
     color:white;
     text-decoration:none;
     border-radius:5px;
-<<<<<<< HEAD
     margin-right:8px;
-=======
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 }
 
 .download-btn:hover{
     background:#1a252f;
-}
-
-<<<<<<< HEAD
-.edit-btn{
-    padding:6px 12px;
-    background:#f59e0b;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-    margin-right:5px;
 }
 
 .delete-btn{
@@ -192,15 +153,16 @@ body{
     border-radius:5px;
 }
 
-=======
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
+.delete-btn:hover{
+    background:#b91c1c;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<<<<<<< HEAD
 <!-- HEADER -->
 <header class="main-header">
 
@@ -218,17 +180,15 @@ body{
 
         <?php if(isset($_SESSION['admin'])): ?>
             <a href="admin/dashboard.php">Dashboard</a>
-            <a href="admin/login.php">Logout</a>
+            <a href="admin/logout.php">Logout</a>
         <?php else: ?>
-            <a href="admin/logout.php">Admin Login</a>
+            <a href="admin/login.php">Admin Login</a>
         <?php endif; ?>
     </nav>
 
 </header>
 
 <!-- CONTENT -->
-=======
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 <div class="container">
 
 <h2>📘 Study Notes</h2>
@@ -237,7 +197,7 @@ body{
 Well-organized study notes help students understand important concepts
 and revise key topics effectively for exams.
 </p>
-<<<<<<< HEAD
+
 <!-- SEARCH BAR -->
 <form method="GET" style="margin-bottom:20px;">
 
@@ -264,11 +224,6 @@ and revise key topics effectively for exams.
     </button>
 
 </form>
-<?php
-if(mysqli_num_rows($result) > 0){
-
-while($row = mysqli_fetch_assoc($result)){
-=======
 
 <?php
 
@@ -276,23 +231,26 @@ if(mysqli_num_rows($result) > 0){
 
 while($row = mysqli_fetch_assoc($result)){
 
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 ?>
 
 <div class="note-card">
 
 <div>
-<<<<<<< HEAD
 <h3><?php echo htmlspecialchars($row['title']); ?></h3>
 <p>Subject: <?php echo htmlspecialchars($row['subject']); ?></p>
 </div>
 
 <div>
-<a class="view-btn" href="uploads/notes/<?php echo htmlspecialchars($row['file']); ?>" target="_blank">
+
+<a class="view-btn"
+href="uploads/notes/<?php echo htmlspecialchars($row['file']); ?>"
+target="_blank">
 View
 </a>
 
-<a class="download-btn" href="uploads/notes/<?php echo htmlspecialchars($row['file']); ?>" download>
+<a class="download-btn"
+href="uploads/notes/<?php echo htmlspecialchars($row['file']); ?>"
+download>
 Download
 </a>
 
@@ -306,16 +264,6 @@ Delete
 
 <?php endif; ?>
 
-=======
-<h3><?php echo $row['title']; ?></h3>
-<p>Subject: <?php echo $row['subject']; ?></p>
-</div>
-
-<div>
-<a class="download-btn" href="uploads/<?php echo $row['file']; ?>" download>
-Download
-</a>
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 </div>
 
 </div>
@@ -324,24 +272,12 @@ Download
 }
 
 }else{
-<<<<<<< HEAD
     echo "<p style='text-align:center;color:gray;'>📭 No notes available yet.</p>";
 }
-=======
-
-echo "<p>No notes available.</p>";
-
-}
-
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
 ?>
 
 </div>
 
 </body>
-<<<<<<< HEAD
-</html>
-=======
 </html>
 
->>>>>>> 43fe13fd0a37717b1cf585403ae00e7f899c6ef6
