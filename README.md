@@ -47,18 +47,8 @@ CREATE TABLE quiz_questions (
 );
 
 
-CREATE TABLE admin (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(100),
-    password VARCHAR(255)
-);
 
-INSERT INTO admin (username, password)
-VALUES ('admin', '1234');
+INSERT INTO admins (username, password)
+VALUES ('Yeshi', '623002');
 
-INSERT INTO quiz_questions 
-(question, option1, option2, option3, option4, correct_answer)
-VALUES
-('What is 2 + 2?', '2', '3', '4', '5', 'C'),
-('Capital of India?', 'Mumbai', 'Delhi', 'Kolkata', 'Chennai', 'B');
 
