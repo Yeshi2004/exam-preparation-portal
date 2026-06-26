@@ -4,14 +4,16 @@ final year project
 CREATE DATABASE exam_portal;
 USE exam_portal;
 
--- Admin table
+Admin table
+
 CREATE TABLE admins (
 id INT AUTO_INCREMENT PRIMARY KEY,
 username VARCHAR(100),
 password VARCHAR(255)
 );
 
--- Notes
+Notes
+
 CREATE TABLE notes (
 id INT AUTO_INCREMENT PRIMARY KEY,
 title VARCHAR(200),
@@ -19,7 +21,8 @@ subject VARCHAR(100),
 file VARCHAR(255)
 );
 
--- Past Papers
+Past Papers
+
 CREATE TABLE past_papers (
 id INT AUTO_INCREMENT PRIMARY KEY,
 subject VARCHAR(100),
@@ -27,7 +30,8 @@ year INT,
 file VARCHAR(255)
 );
 
--- Model Papers
+Model Papers
+
 CREATE TABLE model_papers (
 id INT AUTO_INCREMENT PRIMARY KEY,
 title VARCHAR(200),
